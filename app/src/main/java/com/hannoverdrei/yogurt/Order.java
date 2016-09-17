@@ -9,31 +9,31 @@ import java.util.LinkedList;
  */
 public class Order {
 
-    private static LinkedList orderIngs = new LinkedList();
-    private static int totalValue;
+    private LinkedList orderIngs = new LinkedList();
+    private int totalValue;
 
     public Order(LinkedList orderIngs, int totalValue) { // User Data add
         this.orderIngs = orderIngs;
         this.totalValue = totalValue;
     }
 
-    private static void Adding(String name, int value, TextView price) {
-        Ingridient ing = new Ingridient(name,value);
+    private void adding(String name, int value, TextView price) {
+        Ingredient ing = new Ingredient(name, value);
 
         totalValue += value;
         if (totalValue <= 25) {
             price.setText("2,50");
         } else if (totalValue <= 50) {
             price.setText("4,20");
-        } else if ( totalValue <= 75) {
+        } else if (totalValue <= 75) {
             price.setText("6,50");
-        } else if ( totalValue <= 100) {
+        } else if (totalValue <= 100) {
             price.setText("10,00");
         }
         orderIngs.addLast(ing);
     }
 
-    private static void Delete(Ingridient ing) {
+    private void delete(Ingredient ing) {
         orderIngs.remove(ing);
     }
 
