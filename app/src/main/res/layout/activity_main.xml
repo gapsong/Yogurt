@@ -32,8 +32,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="New Button"
-            android:id="@+id/button"
+            android:text="Order"
+            android:id="@+id/buttonOrder"
             android:layout_weight="0.33" />
     </LinearLayout>
 

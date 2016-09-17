@@ -1,7 +1,4 @@
 package com.hannoverdrei.yogurt;
-
-import android.widget.TextView;
-
 import java.util.LinkedList;
 
 /**
@@ -9,33 +6,13 @@ import java.util.LinkedList;
  */
 public class Order {
 
-    private LinkedList orderIngs = new LinkedList();
+    private LinkedList<Ingredient> orderIngs = new LinkedList(); // because easy right now
     private int totalValue;
+    private double cost;
 
-    public Order(LinkedList orderIngs, int totalValue) { // User Data add
+    public Order(LinkedList<Ingredient> orderIngs, int totalValue, double cost) {
         this.orderIngs = orderIngs;
         this.totalValue = totalValue;
+        this.cost = cost;
     }
-
-    private void adding(String name, int value, TextView price) {
-        Ingredient ing = new Ingredient(name, value);
-
-        totalValue += value;
-        if (totalValue <= 25) {
-            price.setText("2,50");
-        } else if (totalValue <= 50) {
-            price.setText("4,20");
-        } else if (totalValue <= 75) {
-            price.setText("6,50");
-        } else if (totalValue <= 100) {
-            price.setText("10,00");
-        }
-        orderIngs.addLast(ing);
-    }
-
-    private void delete(Ingredient ing) {
-        orderIngs.remove(ing);
-    }
-
-
 }

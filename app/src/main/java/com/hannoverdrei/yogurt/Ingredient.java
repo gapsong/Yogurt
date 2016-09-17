@@ -9,16 +9,10 @@ public class Ingredient {
 
 
     private String name;
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     private int value;
     private Image image;
 
-    public Ingredient(String name, int value) {
-        this.name = name;
+    public void setValue(int value) {
         this.value = value;
     }
 
@@ -29,6 +23,12 @@ public class Ingredient {
     public String getName() {
         return name;
     }
+
+    public Ingredient(String name, int value) {
+        this.name = name;
+        this.value = value;
+    }
+
 
 
 }

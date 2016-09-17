@@ -64,7 +64,6 @@ class YourAdapter extends BaseAdapter {
         return vi;
     }
 
-
     private class OnClickWrapper implements View.OnClickListener {
 
         private int position;
@@ -74,7 +73,6 @@ class YourAdapter extends BaseAdapter {
             this.position = position;
             this.anzahl = anzahl;
         }
-
 
         @Override
         public void onClick(View view) {

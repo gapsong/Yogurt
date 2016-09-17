@@ -19,22 +19,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         connectionHandler = new ConnectionHandler();
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.buttonOrder);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("yo", "fdsfa");
+                // Create Order
+                Log.d("yo", "order created");
+                // Send Information to Machine
+
+                Log.d("yo", "Order received information");
                 connectionHandler.sendGETstring();
             }
         });
 
         LinkedList<Ingredient> obstZutaten = new LinkedList<Ingredient>();
-        obstZutaten.add(new Ingredient("Avocado", 0));
-        obstZutaten.add(new Ingredient("Banane", 0));
-        obstZutaten.add(new Ingredient("Erdbeere", 0));
+        obstZutaten.add(new Ingredient("Avocado", 50));
+        obstZutaten.add(new Ingredient("Banane", 50));
+        obstZutaten.add(new Ingredient("Erdbeere", 50));
         obstZutaten.add(new Ingredient("Gurke", 0));
         obstZutaten.add(new Ingredient("Mango", 0));
         obstZutaten.add(new Ingredient("Tomate", 0));
+
+        Order order = new Order(obstZutaten, 100, 9.50); // test for message
 
 
         ListView lv = (ListView) findViewById(R.id.listView);//hier wird das Listenelement mit dem xml file verknüpft
