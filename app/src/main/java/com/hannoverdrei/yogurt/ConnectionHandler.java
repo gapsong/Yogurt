@@ -2,23 +2,26 @@ package com.hannoverdrei.yogurt;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by gap on 17.09.16.
- */
+
 public class ConnectionHandler {
 
-    private String DEST_URL = "http://10.0.2.2:3000/";
+    private String DEST_URL = "http://64.100.10.242:5000/use/ingredient";
+    //private String DEST_URL = "http://10.0.2.2:3000/test";
 
 
     public void sendGETstring() {
         AsyncTaskRunner response = new AsyncTaskRunner();//Daten an den Thread weitergeben
-        response.execute("GET");
+        response.execute("POST");
     }
 
     //****************************************
@@ -32,6 +35,25 @@ public class ConnectionHandler {
         URL url = new URL(DEST_URL);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(requestType);
+
+        //Send request JSON
+        JSONObject jsonParam = new JSONObject();
+        jsonParam.put("level_id", "12");
+        jsonParam.put("amount", "1");
+
+        connection.setRequestProperty("User-Agent", "");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setDoInput(true);
+        connection.setDoOutput(false);
+
+        //Send request
+
+        DataOutputStream os = new DataOutputStream(connection.getOutputStream());
+        try {
+            os.writeBytes(jsonParam.toString());
+        } catch (Exception e) {
+        }
+        os.close();
 
         //Get response
         InputStream inputStream = connection.getInputStream();

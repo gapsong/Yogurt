@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         LinkedList<Ingredient> obstZutaten = new LinkedList<Ingredient>();
-        obstZutaten.add(new Ingredient("Avocado", 50));
-        obstZutaten.add(new Ingredient("Banane", 50));
-        obstZutaten.add(new Ingredient("Erdbeere", 50));
+        obstZutaten.add(new Ingredient("Avocado", 0));
+        obstZutaten.add(new Ingredient("Banane", 0));
+        obstZutaten.add(new Ingredient("Erdbeere", 0));
         obstZutaten.add(new Ingredient("Gurke", 0));
         obstZutaten.add(new Ingredient("Mango", 0));
         obstZutaten.add(new Ingredient("Tomate", 0));
