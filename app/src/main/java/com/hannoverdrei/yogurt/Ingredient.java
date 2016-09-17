@@ -12,6 +12,13 @@ public class Ingredient {
     private int value;
     private Image image;
 
+
+    public Ingredient(String name, int value, Image image) {
+        this.name = name;
+        this.value = value;
+        this.image = image;
+    }
+
     public void setValue(int value) {
         this.value = value;
     }
@@ -23,12 +30,5 @@ public class Ingredient {
     public String getName() {
         return name;
     }
-
-    public Ingredient(String name, int value) {
-        this.name = name;
-        this.value = value;
-    }
-
-
 
 }
