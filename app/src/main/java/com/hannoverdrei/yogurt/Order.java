@@ -6,7 +6,7 @@ import java.util.LinkedList;
  */
 public class Order {
 
-    private LinkedList<Ingredient> orderIngs = new LinkedList(); // because easy right now
+    private LinkedList<Ingredient> orderIngs; // because easy right now
     private int totalValue;
     private double cost;
 
@@ -14,5 +14,9 @@ public class Order {
         this.orderIngs = orderIngs;
         this.totalValue = totalValue;
         this.cost = cost;
+    }
+
+    public void sendOrder(){
+
     }
 }
