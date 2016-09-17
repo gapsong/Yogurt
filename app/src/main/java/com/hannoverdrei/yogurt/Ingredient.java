@@ -10,14 +10,9 @@ public class Ingredient {
 
     private String name;
     private int value;
+    private int id;
     private Image image;
 
-
-    public Ingredient(String name, int value, Image image) {
-        this.name = name;
-        this.value = value;
-        this.image = image;
-    }
 
     public void setValue(int value) {
         this.value = value;
@@ -29,6 +24,17 @@ public class Ingredient {
 
     public String getName() {
         return name;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public Ingredient(String name, int value, int id) {
+        this.name = name;
+        this.value = value;
+        this.id = id;
     }
 
 }
