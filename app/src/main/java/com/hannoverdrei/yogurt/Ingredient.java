@@ -31,10 +31,9 @@ public class Ingredient {
         return id;
     }
 
-    public Ingredient(String name, int value, int id) {
+    public Ingredient(String name, int id) {
         this.name = name;
-        this.value = value;
+        this.value = 0;
         this.id = id;
     }
-
 }
