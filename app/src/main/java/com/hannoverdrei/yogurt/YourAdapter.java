@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -59,6 +60,7 @@ class YourAdapter extends BaseAdapter {
         plusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
         Button minusButton = (Button) vi.findViewById(R.id.minus);
         minusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
+
         ImageView imageView = (ImageView) vi.findViewById(R.id.icon);
         imageView.setImageResource(ingredientList.get(position).getImageID());
 

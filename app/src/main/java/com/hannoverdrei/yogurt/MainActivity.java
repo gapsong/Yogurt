@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.LinkedList;
 
@@ -20,13 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final LinkedList<Ingredient> obstZutaten = new LinkedList<Ingredient>();
-        obstZutaten.add(new Ingredient("Avocado", 0, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Avocado", 0,R.drawable.avocado));
         obstZutaten.add(new Ingredient("Banane", 1, R.drawable.banana));
-        obstZutaten.add(new Ingredient("Erdbeere", 2, R.drawable.banana));
-        obstZutaten.add(new Ingredient("Gurke", 3, R.drawable.banana));
-        obstZutaten.add(new Ingredient("Mango", 4, R.drawable.banana));
-        obstZutaten.add(new Ingredient("Tomate", 5, R.drawable.banana));
-
+        obstZutaten.add(new Ingredient("Erdbeere", 2, R.drawable.strawberry));
+        obstZutaten.add(new Ingredient("Mango", 4, R.drawable.mango));
+        obstZutaten.add(new Ingredient("Tomate", 5, R.drawable.tomato));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Order order = new Order(obstZutaten);
                 if (order.totalValue() > 0)
                     connectionHandler.sendPOSTstring(order.sendOrderAsJSON());

@@ -14,8 +14,8 @@ import java.net.URL;
 
 public class ConnectionHandler {
 
-    //private String DEST_URL = "http://64.100.10.242:5000/order";
-    private String DEST_URL = "http://10.0.2.2:3000/test";
+    private String DEST_URL = "http://64.100.10.242:5000/order";
+    //private String DEST_URL = "http://10.0.2.2:3000/test";
 
 
     public void sendPOSTstring(String orderJSON) {
