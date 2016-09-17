@@ -10,6 +10,7 @@ public class Ingredient {
 
     private String name;
     private int value;
+    private int id;
     private Image image;
 
     public void setValue(int value) {
@@ -24,9 +25,12 @@ public class Ingredient {
         return name;
     }
 
-    public Ingredient(String name, int value) {
+    public int getId() { return id;}
+
+    public Ingredient(String name, int value, int id) {
         this.name = name;
         this.value = value;
+        this.id = id;
     }
 
 

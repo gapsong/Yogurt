@@ -19,7 +19,7 @@ public class ConnectionHandler {
     //private String DEST_URL = "http://10.0.2.2:3000/test";
 
 
-    public void sendGETstring() {
+    public void sendPOSTstring() {
         AsyncTaskRunner response = new AsyncTaskRunner();//Daten an den Thread weitergeben
         response.execute("POST");
     }
