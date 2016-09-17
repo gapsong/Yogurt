@@ -15,4 +15,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="allert_message">You reached the next price class</string>
+    <string name="pAllert">Fine</string>
+    <string name="nAllert">Cancel</string>
 </resources>

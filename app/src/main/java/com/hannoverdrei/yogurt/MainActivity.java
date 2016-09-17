@@ -35,10 +35,13 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Order order = new Order(obstZutaten);
                 if (order.totalValue() > 0)
                     connectionHandler.sendPOSTstring(order.sendOrderAsJSON());
+
+                for(Ingredient ing : obstZutaten) {
+                    ing.setValue(0);
+                }
             }
         });
 

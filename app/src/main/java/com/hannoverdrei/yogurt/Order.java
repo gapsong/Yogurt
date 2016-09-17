@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Order {
 
     private LinkedList<Ingredient> orderIngs; // because easy right now
-
+    private double cost;
     public Order(LinkedList<Ingredient> orderIngs) {
         this.orderIngs = orderIngs;
     }
