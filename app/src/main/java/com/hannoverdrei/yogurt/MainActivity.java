@@ -24,8 +24,5 @@ public class MainActivity extends AppCompatActivity {
                 connectionHandler.sendGETstring();
             }
         });
-
     }
-
-
 }
