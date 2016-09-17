@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final LinkedList<Ingredient> obstZutaten = new LinkedList<Ingredient>();
-        obstZutaten.add(new Ingredient("Avocado", 0));
-        obstZutaten.add(new Ingredient("Banane", 1));
-        obstZutaten.add(new Ingredient("Erdbeere", 2));
-        obstZutaten.add(new Ingredient("Gurke", 3));
-        obstZutaten.add(new Ingredient("Mango", 4));
-        obstZutaten.add(new Ingredient("Tomate", 5));
+        obstZutaten.add(new Ingredient("Avocado", 0, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Banane", 1, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Erdbeere", 2, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Gurke", 3, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Mango", 4, R.drawable.banana));
+        obstZutaten.add(new Ingredient("Tomate", 5, R.drawable.banana));
 
 
         super.onCreate(savedInstanceState);
@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     connectionHandler.sendPOSTstring(order.sendOrderAsJSON());
             }
         });
-
 
         ListView lv = (ListView) findViewById(R.id.listView);//hier wird das Listenelement mit dem xml file verknüpft
         lv.setAdapter(new YourAdapter(MainActivity.this, obstZutaten));//diese klasse ist die "logik" zum xml file

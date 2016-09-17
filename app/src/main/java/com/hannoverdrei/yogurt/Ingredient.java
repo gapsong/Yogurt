@@ -11,8 +11,12 @@ public class Ingredient {
     private String name;
     private int value;
     private int id;
-    private Image image;
 
+    public int getImageID() {
+        return imageID;
+    }
+
+    private int imageID;
 
     public void setValue(int value) {
         this.value = value;
@@ -31,9 +35,11 @@ public class Ingredient {
         return id;
     }
 
-    public Ingredient(String name, int id) {
+    public Ingredient(String name, int id,int imageID) {
         this.name = name;
         this.value = 0;
         this.id = id;
+        this.imageID = imageID;
     }
+
 }

@@ -1,11 +1,13 @@
 package com.hannoverdrei.yogurt;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -52,11 +54,13 @@ class YourAdapter extends BaseAdapter {
 
         TextView anzahl = (TextView) vi.findViewById((R.id.anzahl));
         Button plusButton = (Button) vi.findViewById(R.id.plus);
+        TextView obstView = (TextView) vi.findViewById((R.id.obst));
+        obstView.setText(ingredientList.get(position).getName());
         plusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
         Button minusButton = (Button) vi.findViewById(R.id.minus);
         minusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
-        TextView obstView = (TextView) vi.findViewById((R.id.obst));
-        obstView.setText(ingredientList.get(position).getName());
+        ImageView imageView = (ImageView) vi.findViewById(R.id.icon);
+        imageView.setImageResource(ingredientList.get(position).getImageID());
 
         return vi;
     }
