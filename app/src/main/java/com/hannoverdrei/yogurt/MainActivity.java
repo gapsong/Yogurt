@@ -1,13 +1,11 @@
 package com.hannoverdrei.yogurt;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import java.util.LinkedList;
 
@@ -22,16 +20,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final LinkedList<Ingredient> obstZutaten = new LinkedList<>();
-        obstZutaten.add(new Ingredient("Avocado", 0,R.drawable.avocado));
+        obstZutaten.add(new Ingredient("Avocado", 0, R.drawable.avocado));
         obstZutaten.add(new Ingredient("Banane", 1, R.drawable.banana));
         obstZutaten.add(new Ingredient("Erdbeere", 2, R.drawable.strawberry));
-        obstZutaten.add(new Ingredient("Mango", 4, R.drawable.mango));
-        obstZutaten.add(new Ingredient("Tomate", 5, R.drawable.tomato));
+        obstZutaten.add(new Ingredient("Mango", 3, R.drawable.mango));
+        obstZutaten.add(new Ingredient("Tomate", 4, R.drawable.tomato));
+        obstZutaten.add(new Ingredient("Gurke", 5, R.drawable.cucumber));
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         connectionHandler = new ConnectionHandler();
+
+        ListView lv = (ListView) findViewById(R.id.listView);//hier wird das Listenelement mit dem xml file verknüpft
+        final YourAdapter myAdapter = new YourAdapter(MainActivity.this, obstZutaten);
+        lv.setAdapter(myAdapter);//diese klasse ist die "logik" zum xml file
+        ImageView img = (ImageView) findViewById(R.id.imageView);
+        img.setImageResource(R.drawable.mango);
         button = (Button) findViewById(R.id.buttonOrder);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,14 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 if (order.totalValue() > 0)
                     connectionHandler.sendPOSTstring(order.sendOrderAsJSON());
 
-                for(Ingredient ing : obstZutaten) {
-                    ing.setValue(0);
-                }
             }
         });
 
-        ListView lv = (ListView) findViewById(R.id.listView);//hier wird das Listenelement mit dem xml file verknüpft
-        lv.setAdapter(new YourAdapter(MainActivity.this, obstZutaten));//diese klasse ist die "logik" zum xml file
 
     }
 }

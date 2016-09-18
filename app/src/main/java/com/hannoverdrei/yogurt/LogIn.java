@@ -62,7 +62,6 @@ public class LogIn extends AppCompatActivity {
                 // ...
             }
         };
-
         cHandler = new ConnectionHandler(this, mAuthListener);
     }
 

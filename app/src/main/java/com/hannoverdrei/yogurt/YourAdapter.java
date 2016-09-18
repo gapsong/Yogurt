@@ -24,20 +24,14 @@ class YourAdapter extends BaseAdapter {
         this.ingredientList = ingredientList;
     }
 
-    public YourAdapter(Context context) {
-        this.context = context;
-        this.ingredientList = new LinkedList<Ingredient>();
-    }
-
-
     @Override
     public int getCount() {
-        return 5;
+        return ingredientList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return 5;
+        return ingredientList.size();
     }
 
     @Override
@@ -60,12 +54,12 @@ class YourAdapter extends BaseAdapter {
         plusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
         Button minusButton = (Button) vi.findViewById(R.id.minus);
         minusButton.setOnClickListener(new OnClickWrapper(position, anzahl));
-
         ImageView imageView = (ImageView) vi.findViewById(R.id.icon);
         imageView.setImageResource(ingredientList.get(position).getImageID());
 
         return vi;
     }
+
 
     private class OnClickWrapper implements View.OnClickListener {
 
@@ -79,12 +73,14 @@ class YourAdapter extends BaseAdapter {
 
         @Override
         public void onClick(View view) {
+
             switch (view.getId()) {
                 case R.id.plus:
                     ingredientList.get(position).setValue(ingredientList.get(position).getValue() + 1);
                     anzahl.setText("" + (ingredientList.get(position).getValue()));
                     break;
                 case R.id.minus:
+                    if ((ingredientList.get(position).getValue() == 0)) break;
                     ingredientList.get(position).setValue(ingredientList.get(position).getValue() - 1);
                     anzahl.setText("" + (ingredientList.get(position).getValue()));
                     break;
