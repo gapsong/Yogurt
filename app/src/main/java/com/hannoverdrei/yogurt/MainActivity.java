@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        final LinkedList<Ingredient> obstZutaten = new LinkedList<Ingredient>();
+        final LinkedList<Ingredient> obstZutaten = new LinkedList<>();
         obstZutaten.add(new Ingredient("Avocado", 0,R.drawable.avocado));
         obstZutaten.add(new Ingredient("Banane", 1, R.drawable.banana));
         obstZutaten.add(new Ingredient("Erdbeere", 2, R.drawable.strawberry));
