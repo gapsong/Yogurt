@@ -1,0 +1,78 @@
+Step 1 : FROM python:2.7-slim
+ ---> 473fdcadf786
+Step 2 : MAINTAINER Alexander Stoklasa <astoklas@cisco.com>
+ ---> Using cache
+ ---> cb349220118c
+Step 3 : WORKDIR /usr/src
+ ---> Using cache
+ ---> c76ca4e5a5a9
+Step 4 : ADD ./requirements.txt /usr/src/
+ ---> Using cache
+ ---> e199a63ad166
+Step 5 : ADD ./vendingMachineAPI.py /usr/src/
+ ---> 5e1ef7523932
+Removing intermediate container 90ff6e8f20d8
+Step 6 : ADD ./Machine.py /usr/src/
+ ---> 8218a7ba6d5e
+Removing intermediate container d5bf621e82bc
+Step 7 : RUN pip install -r /usr/src/requirements.txt
+ ---> Running in 40b2611e0c6c
+Collecting pika (from -r /usr/src/requirements.txt (line 1))
+  Downloading pika-0.10.0-py2.py3-none-any.whl (92kB)
+Collecting uuid (from -r /usr/src/requirements.txt (line 2))
+  Downloading uuid-1.30.tar.gz
+Collecting apscheduler (from -r /usr/src/requirements.txt (line 3))
+  Downloading APScheduler-3.2.0-py2.py3-none-any.whl (52kB)
+Collecting flask (from -r /usr/src/requirements.txt (line 4))
+  Downloading Flask-0.11.1-py2.py3-none-any.whl (80kB)
+Collecting tzlocal>=1.2 (from apscheduler->-r /usr/src/requirements.txt (line 3))
+  Downloading tzlocal-1.2.2.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools>=0.7 in /usr/local/lib/python2.7/site-packages (from apscheduler->-r /usr/src/requirements.txt (line 3))
+Collecting funcsigs; python_version == "2.7" (from apscheduler->-r /usr/src/requirements.txt (line 3))
+  Downloading funcsigs-1.0.2-py2.py3-none-any.whl
+Collecting six>=1.4.0 (from apscheduler->-r /usr/src/requirements.txt (line 3))
+  Downloading six-1.10.0-py2.py3-none-any.whl
+Collecting pytz (from apscheduler->-r /usr/src/requirements.txt (line 3))
+  Downloading pytz-2016.6.1-py2.py3-none-any.whl (481kB)
+Collecting futures; python_version == "2.7" (from apscheduler->-r /usr/src/requirements.txt (line 3))
+  Downloading futures-3.0.5-py2-none-any.whl
+Collecting itsdangerous>=0.21 (from flask->-r /usr/src/requirements.txt (line 4))
+  Downloading itsdangerous-0.24.tar.gz (46kB)
+Collecting Jinja2>=2.4 (from flask->-r /usr/src/requirements.txt (line 4))
+  Downloading Jinja2-2.8-py2.py3-none-any.whl (263kB)
+Collecting Werkzeug>=0.7 (from flask->-r /usr/src/requirements.txt (line 4))
+  Downloading Werkzeug-0.11.11-py2.py3-none-any.whl (306kB)
+Collecting click>=2.0 (from flask->-r /usr/src/requirements.txt (line 4))
+  Downloading click-6.6.tar.gz (283kB)
+Collecting MarkupSafe (from Jinja2>=2.4->flask->-r /usr/src/requirements.txt (line 4))
+  Downloading MarkupSafe-0.23.tar.gz
+Building wheels for collected packages: uuid, tzlocal, itsdangerous, click, MarkupSafe
+  Running setup.py bdist_wheel for uuid: started
+  Running setup.py bdist_wheel for uuid: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/3e/9f/c8/6c99793624796d141462e85b92f3ad81d9cc3e10892369e79e
+  Running setup.py bdist_wheel for tzlocal: started
+  Running setup.py bdist_wheel for tzlocal: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/e1/dc/7d/53830023b39b3dc690e30a4fe367fdd25e6075164e8a614712
+  Running setup.py bdist_wheel for itsdangerous: started
+  Running setup.py bdist_wheel for itsdangerous: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/fc/a8/66/24d655233c757e178d45dea2de22a04c6d92766abfb741129a
+  Running setup.py bdist_wheel for click: started
+  Running setup.py bdist_wheel for click: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/b0/6d/8c/cf5ca1146e48bc7914748bfb1dbf3a40a440b8b4f4f0d952dd
+  Running setup.py bdist_wheel for MarkupSafe: started
+  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/a3/fa/dc/0198eed9ad95489b8a4f45d14dd5d2aee3f8984e46862c5748
+Successfully built uuid tzlocal itsdangerous click MarkupSafe
+Installing collected packages: pika, uuid, pytz, tzlocal, funcsigs, six, futures, apscheduler, itsdangerous, MarkupSafe, Jinja2, Werkzeug, click, flask
+Successfully installed Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.11 apscheduler-3.2.0 click-6.6 flask-0.11.1 funcsigs-1.0.2 futures-3.0.5 itsdangerous-0.24 pika-0.10.0 pytz-2016.6.1 six-1.10.0 tzlocal-1.2.2 uuid-1.30
+ ---> b7345b05d258
+Removing intermediate container 40b2611e0c6c
+Step 8 : CMD ["/usr/local/bin/python2.7" "/usr/src/vendingMachineAPI.py"]
+ ---> Running in 7c24844d4763
+ ---> a0c60b2b9b86
+Removing intermediate container 7c24844d4763
+Step 9 : EXPOSE 5000
+ ---> Running in 226e1006b72a
+ ---> 831dcd59fc81
+Removing intermediate container 226e1006b72a
+Successfully built 831dcd59fc81
